@@ -29,6 +29,8 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(include ${catkin_INCLUDE_DIRS})
 
+set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
+
 # Driver libraries
 add_library(SickLD c++/drivers/ld/sickld/SickLD.cc c++/drivers/ld/sickld/SickLDBufferMonitor.cc c++/drivers/ld/sickld/SickLDMessage.cc)
 target_link_libraries(SickLD ${catkin_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
@@ -79,6 +81,8 @@ target_link_libraries(lms2xx_stream_range_and_reflect SickLMS2xx ${catkin_LIBRAR
 
 add_executable(lms2xx_subrange c++/examples/lms2xx/lms2xx_subrange/src/main.cc)
 target_link_libraries(lms2xx_subrange SickLMS2xx ${catkin_LIBRARIES})
+
+
 
 #############
 ## Install ##
